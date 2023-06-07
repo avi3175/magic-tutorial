@@ -8,7 +8,7 @@ import { EffectCards } from "swiper";
 
 const Slider = () => {
     return (
-        <div className='mt-12'>
+        <div className='mt-12 '>
             <>
                 <Swiper
                     effect={"cards"}
@@ -50,6 +50,8 @@ const Slider = () => {
 
                 </Swiper>
             </>
+
+            
         </div>
     );
 };
