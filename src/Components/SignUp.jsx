@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useForm } from 'react-hook-form';
 const SignUp = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
-        console.log(data)
+        
+        if (data.confirm !== data.password) {
+            alert("PASSWORD DOES NOT MATCH")
+        }else{
+            console.log(data)
+        }
+       
     };
 
 
@@ -11,13 +18,15 @@ const SignUp = () => {
 
     return (
         <div>
-            <div className="hero min-h-screen bg-base-200">
+            <Helmet>
+                <title>SIGN UP || MAGIC SCHOOL</title>
+            </Helmet>
+            <div className="hero min-h-screen bg-gradient-to-r from-violet-900 to-black">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
-                        <h1 className="text-5xl font-bold">Login now!</h1>
-                        <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                        
                     </div>
-                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-gradient-to-r from-rose-900 to-blue-900">
                         <form onSubmit={handleSubmit(onSubmit)} className="card-body">
 
                             <div className="form-control">
@@ -47,6 +56,7 @@ const SignUp = () => {
                                     {...register("email")}
 
                                 />
+                                {errors.name && <span className='text-rose-900'>This field is required</span>}
                             </div>
 
                             <div className="form-control">
@@ -62,14 +72,14 @@ const SignUp = () => {
                                         required: true,
                                         minLength: 6,
                                         maxLength: 10,
-                                        pattern:/[!@#$%^&*()\-=_+[\]{}|\\;:'",.<>/?]/
+                                        pattern: /[!@#$%^&*()\-=_+[\]{}|\\;:'",.<>/?]/
                                     })}
                                 />
                                 {errors.password?.type === 'pattern' && <span className='text-rose-700'>Password need one special charecter</span>}
 
                                 {errors.password?.type === 'required' && <span className='text-rose-700'>Password is required</span>}
 
-                                {errors.password?.type === 'required' && <span className='text-rose-700'>Password must be 6 charecters</span>}
+                                {errors.password?.type === 'minLength' && <span className='text-rose-700'>Password must be 6 charecters</span>}
 
                                 {errors.password?.type === 'maxLength' && <span className='text-rose-700'>Password must be less then than 10 charecters</span>}
 

@@ -32,7 +32,7 @@ const Nabvar = () => {
 
                                 <a href="/dashboard" className="text-yellow-700 uppercase hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-bold">Dashboard</a>
 
-                                <a href="/login" className="text-yellow-700 uppercase hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-bold">Log In</a>
+                                <Link to="/login" className="text-yellow-700 uppercase hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-bold">Log In</Link>
 
                                 <Link to="/signup" className="text-yellow-700 uppercase hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-bold">Sign Up</Link>
                             </div>
