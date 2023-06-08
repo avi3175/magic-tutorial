@@ -1,12 +1,18 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../Provider/AuthProvider';
 
 const Nabvar = () => {
+    const {user,logOut} = useContext(AuthContext)
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
+
+
+    logOut()
+
     return (
         <div>
             <nav className="bg-black">
@@ -32,7 +38,11 @@ const Nabvar = () => {
 
                                 <a href="/dashboard" className="text-yellow-700 uppercase hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-bold">Dashboard</a>
 
-                                <Link to="/login" className="text-yellow-700 uppercase hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-bold">Log In</Link>
+                                {
+                                    user?<>Logout</>
+                                    :
+                                    <Link to="/login" className="text-yellow-700 uppercase hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-bold">Log In</Link>
+                                }
 
                                 <Link to="/signup" className="text-yellow-700 uppercase hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-bold">Sign Up</Link>
                             </div>
