@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../Provider/AuthProvider';
+import Nabvar from './Nabvar';
 
 const LogIn = () => {
+    const navigation = useNavigate()
     const {logIn} = useContext(AuthContext)
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data =>{
@@ -12,11 +14,14 @@ const LogIn = () => {
          .then(result=>{
             const user = result.user
             console.log(user)
+            navigation('/')
          })
         };
 
     return (
+
         <div>
+            <Nabvar></Nabvar>
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">

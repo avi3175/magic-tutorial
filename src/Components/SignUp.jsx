@@ -2,9 +2,15 @@ import React, { useContext, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../Provider/AuthProvider';
+import Nabvar from './Nabvar';
+import { useNavigate } from 'react-router-dom';
+
+
 const SignUp = () => {
+    const navigate = useNavigate()
+
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const {createUser} = useContext(AuthContext)
+    const {createUser,update} = useContext(AuthContext)
     const onSubmit = data => {
         
         createUser(data.email,data.password)
@@ -12,7 +18,13 @@ const SignUp = () => {
             const loggedUser = result.user
             console.log(loggedUser)
         })
-       
+
+        update(data.name,data.photoURL)
+        .then(()=>{
+            alert("USER PROFILE UPDATED")
+            navigate('/')
+        })
+       .catch(error=>console.log(error))
     };
 
 
@@ -23,6 +35,7 @@ const SignUp = () => {
             <Helmet>
                 <title>SIGN UP || MAGIC SCHOOL</title>
             </Helmet>
+            <Nabvar></Nabvar>
             <div className="hero min-h-screen bg-gradient-to-r from-violet-900 to-black">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
@@ -102,7 +115,7 @@ const SignUp = () => {
                                 {errors.name && <span className='text-red-500'>This field is required</span>}
                             </div>
 
-                            <input type="file" className="file-input file-input-bordered bg-rose-700 w-full max-w-xs" />       
+                            <input type="file" className="file-input file-input-bordered bg-rose-700 w-full max-w-xs"  />       
 
                             <input type="submit" value="REGISTER" />
                         </form>
