@@ -25,6 +25,30 @@ const SignUp = () => {
             navigate('/')
         })
        .catch(error=>console.log(error))
+
+        const role = "student"
+        const name = data.name
+        const email = data.email
+        const password = data.password
+
+        const user = {
+            userName:name,email,role,password
+        }
+  
+
+       fetch('http://localhost:5000/users',{
+            method:"POST",
+            headers:{
+                "content-type":"application/json"
+            },
+            body:JSON.stringify(user)
+       })
+       .then(res=>res.json())
+       .then(data=>{
+        if(data.insertedId){
+            alert('INSERTED SUCCESSFULLT')
+        }
+       })
     };
 
 

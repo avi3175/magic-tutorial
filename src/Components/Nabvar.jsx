@@ -5,7 +5,7 @@ import { AuthContext } from '../Provider/AuthProvider';
 const Nabvar = () => {
     const { user, logOut } = useContext(AuthContext)
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+    console.log(user)
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
@@ -43,7 +43,7 @@ const handleLogOut = () =>{
                                 <a href="/dashboard" className="text-yellow-700 uppercase hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-bold">Dashboard</a>
 
 
-                                {user ? <p onClick={handleLogOut} className='text-yellow-700 uppercase hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-bold'>logout <span className='text-blue-900 bg-sky-400 p-2 mx-3'>{user?.displayName}</span></p>
+                                {user ? <p onClick={handleLogOut} className='text-yellow-700 uppercase hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-bold'>logout <span className='text-blue-900 bg-sky-400 p-2 mx-3'>{user?.email}</span></p>
                                     :
                                     <div>
                                         <Link to="/login" className="text-yellow-700 uppercase hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-bold">Log In</Link>
