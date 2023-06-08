@@ -1,0 +1,40 @@
+[
+    {
+      "image": "instructor1-image.jpg",
+      "name": "Chris Angels",
+      "email": "criss@example.com",
+      "classesTaken": "5"
+      
+    },
+    {
+      "image": "instructor2-image.jpg",
+      "name": "Pen and Teller",
+      "email": "pt@example.com",
+      "classesTaken": "5"
+    },
+    {
+      "image": "instructor2-image.jpg",
+      "name": "David Copperfield",
+      "email": "david@example.com",
+      "classesTaken": "5"
+    },
+    {
+      "image": "instructor2-image.jpg",
+      "name": "David Blain",
+      "email": "blain@example.com",
+      "classesTaken": "5"
+    },
+    {
+      "image": "instructor2-image.jpg",
+      "name": "Dynamo",
+      "email": "dynamo@example.com",
+      "classesTaken": 5
+    },
+    {
+      "image": "instructor2-image.jpg",
+      "name": "Derren Brown",
+      "email": "brown@example.com",
+      "classesTaken": "5"
+    }
+  ]
+  

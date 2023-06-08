@@ -25,7 +25,7 @@ const Nabvar = () => {
                             <div className="ml-10 flex items-baseline space-x-4">
                                 <a href="/" className="text-yellow-700 uppercase hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-bold">Home</a>
 
-                                <a href="/instructors" className="text-yellow-700  uppercasehover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-bold">Instructors</a>
+                                <a href="/instructors" className="text-yellow-700  uppercase hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-bold">Instructors</a>
 
                                 <a href="/classes" className="text-yellow-700 uppercase hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-bold">Classes</a>
 
