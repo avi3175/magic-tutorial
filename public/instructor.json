@@ -1,37 +1,37 @@
 [
     {
-      "image": "instructor1-image.jpg",
+      "image": "https://cdn.wallpapersafari.com/53/62/xP05sO.jpg",
       "name": "Chris Angels",
       "email": "criss@example.com",
       "classesTaken": "5"
       
     },
     {
-      "image": "instructor2-image.jpg",
+      "image": "https://w7.pngwing.com/pngs/47/975/png-transparent-penn-teller-fool-us-penn-jillette-marquis-theatre-penn-jillette-television-public-relations-necktie-thumbnail.png",
       "name": "Pen and Teller",
       "email": "pt@example.com",
       "classesTaken": "5"
     },
     {
-      "image": "instructor2-image.jpg",
+      "image": "https://wallpapercave.com/wp/wp1917060.jpg",
       "name": "David Copperfield",
       "email": "david@example.com",
       "classesTaken": "5"
     },
     {
-      "image": "instructor2-image.jpg",
+      "image": "https://cdn.technadu.com/wp-content/uploads/2020/03/David-Blaine.jpg",
       "name": "David Blain",
       "email": "blain@example.com",
       "classesTaken": "5"
     },
     {
-      "image": "instructor2-image.jpg",
+      "image": "https://wallpapercave.com/wp/wp2023573.jpg",
       "name": "Dynamo",
       "email": "dynamo@example.com",
       "classesTaken": 5
     },
     {
-      "image": "instructor2-image.jpg",
+      "image": "https://wallpapercave.com/wp/wp4502131.jpg",
       "name": "Derren Brown",
       "email": "brown@example.com",
       "classesTaken": "5"
