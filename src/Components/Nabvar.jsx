@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 
 const Nabvar = () => {
-    const {user,logOut} = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext)
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const toggleMenu = () => {
@@ -11,7 +11,11 @@ const Nabvar = () => {
     };
 
 
+const handleLogOut = () =>{
     logOut()
+    .then(()=>{})
+    .catch(error=>console.log(error))
+}
 
     return (
         <div>
@@ -38,15 +42,29 @@ const Nabvar = () => {
 
                                 <a href="/dashboard" className="text-yellow-700 uppercase hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-bold">Dashboard</a>
 
-                                {
-                                    user?<>Logout</>
+
+                                {user ? <p onClick={handleLogOut} className='text-yellow-700 uppercase hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-bold'>logout</p>
                                     :
-                                    <Link to="/login" className="text-yellow-700 uppercase hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-bold">Log In</Link>
+                                    <div>
+                                        <Link to="/login" className="text-yellow-700 uppercase hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-bold">Log In</Link>
+
+                                        <Link to="/signup" className="text-yellow-700 uppercase hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-bold">Sign Up</Link>
+                                    </div>
                                 }
 
-                                <Link to="/signup" className="text-yellow-700 uppercase hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-bold">Sign Up</Link>
+
+
+
+                                {/* <Link to="/login" className="text-yellow-700 uppercase hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-bold">Log In</Link>
+
+                                <Link to="/signup" className="text-yellow-700 uppercase hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-bold">Sign Up</Link> */}
                             </div>
                         </div>
+
+
+
+
+
                         <div className="-mr-2 flex md:hidden">
                             <button onClick={toggleMenu} className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white">
                                 <svg className="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
@@ -59,6 +77,9 @@ const Nabvar = () => {
                             </button>
                         </div>
                     </div>
+
+
+
                 </div>
                 {isMenuOpen && (
                     <div className="md:hidden">
