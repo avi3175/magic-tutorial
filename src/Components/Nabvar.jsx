@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Nabvar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,7 +26,7 @@ const Nabvar = () => {
                             <div className="ml-10 flex items-baseline space-x-4">
                                 <a href="/" className="text-yellow-700 uppercase hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-bold">Home</a>
 
-                                <a href="/instructors" className="text-yellow-700  uppercase hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-bold">Instructors</a>
+                                <Link to="/teacher" className="text-yellow-700  uppercase hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-bold">Instructors</Link>
 
                                 <a href="/classes" className="text-yellow-700 uppercase hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-bold">Classes</a>
 
