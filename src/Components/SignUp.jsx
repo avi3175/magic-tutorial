@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useForm } from 'react-hook-form';
+import { AuthContext } from '../Provider/AuthProvider';
 const SignUp = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const {createUser} = useContext(AuthContext)
     const onSubmit = data => {
         
-        if (data.confirm !== data.password) {
-            alert("PASSWORD DOES NOT MATCH")
-        }else{
-            console.log(data)
-        }
+        createUser(data.email,data.password)
+        .then(result=>{
+            const loggedUser = result.user
+            console.log(loggedUser)
+        })
        
     };
 
@@ -100,6 +102,7 @@ const SignUp = () => {
                                 {errors.name && <span className='text-red-500'>This field is required</span>}
                             </div>
 
+                            <input type="file" className="file-input file-input-bordered bg-rose-700 w-full max-w-xs" />       
 
                             <input type="submit" value="REGISTER" />
                         </form>
