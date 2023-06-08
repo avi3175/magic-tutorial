@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 const SignUp = () => {
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
-
+    const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
         console.log(data)
     };
@@ -28,11 +27,12 @@ const SignUp = () => {
 
                                 <input
                                     type="text"
-                                    placeholder="email"
+                                    placeholder="name"
                                     name='name'
                                     className="input input-bordered"
-                                    {...register("name")}
+                                    {...register("name", { required: true })}
                                 />
+                                {errors.name && <span className='text-rose-900'>This field is required</span>}
                             </div>
 
                             <div className="form-control">
@@ -45,6 +45,7 @@ const SignUp = () => {
                                     name='email'
                                     className="input input-bordered"
                                     {...register("email")}
+
                                 />
                             </div>
 
@@ -57,12 +58,22 @@ const SignUp = () => {
                                     placeholder="password"
                                     name='password'
                                     className="input input-bordered"
-                                    {...register("password")}
+                                    {...register("password", {
+                                        required: true,
+                                        minLength: 6,
+                                        maxLength: 10,
+                                        pattern:/[!@#$%^&*()\-=_+[\]{}|\\;:'",.<>/?]/
+                                    })}
                                 />
+                                {errors.password?.type === 'pattern' && <span className='text-rose-700'>Password need one special charecter</span>}
 
-                                <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                                </label>
+                                {errors.password?.type === 'required' && <span className='text-rose-700'>Password is required</span>}
+
+                                {errors.password?.type === 'required' && <span className='text-rose-700'>Password must be 6 charecters</span>}
+
+                                {errors.password?.type === 'maxLength' && <span className='text-rose-700'>Password must be less then than 10 charecters</span>}
+
+
                             </div>
 
                             <div className="form-control">
@@ -74,9 +85,9 @@ const SignUp = () => {
                                     placeholder="password"
                                     name='confirm'
                                     className="input input-bordered"
-                                    {...register("confirm")}
+                                    {...register("confirm", { required: true })}
                                 />
-
+                                {errors.name && <span className='text-red-500'>This field is required</span>}
                             </div>
 
 
