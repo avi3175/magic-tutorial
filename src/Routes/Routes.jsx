@@ -10,6 +10,7 @@ import LogIn from "../Components/LogIn";
 import Dashboard from "../Layout/Dashboard";
 import Mycart from "../Components/Mycart";
 import PrivateRoute from "./PrivateRoute";
+import MyClass from "../Components/MyClass";
 
  export const router = createBrowserRouter([
     {
@@ -41,6 +42,10 @@ import PrivateRoute from "./PrivateRoute";
         {
           path:"mycart",
           element:<Mycart></Mycart>
+        },
+        {
+          path:"class",
+          element:<MyClass></MyClass>
         }
       ]
     }
