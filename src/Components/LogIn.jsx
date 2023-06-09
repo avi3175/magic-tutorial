@@ -1,20 +1,24 @@
 import React, { useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../Provider/AuthProvider';
 import Nabvar from './Nabvar';
 
 const LogIn = () => {
     const navigation = useNavigate()
+    const location = useLocation()
     const {logIn} = useContext(AuthContext)
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const from = location.state?.from?.pathname || '/'
+
+
     const onSubmit = data =>{
          console.log(data)
          logIn(data.email,data.password)
          .then(result=>{
             const user = result.user
             console.log(user)
-            navigation('/')
+            navigation(from,{replace:true})
          })
         };
 

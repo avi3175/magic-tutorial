@@ -4,11 +4,12 @@ import { useForm } from 'react-hook-form';
 import { AuthContext } from '../Provider/AuthProvider';
 import Nabvar from './Nabvar';
 import { useNavigate } from 'react-router-dom';
+import userStack from '../hooks/Userstack';
 
 
 const SignUp = () => {
     const navigate = useNavigate()
-
+    const [cart,refetch] = userStack()
     const { register, handleSubmit, formState: { errors } } = useForm();
     const {createUser,update} = useContext(AuthContext)
     const onSubmit = data => {
@@ -46,6 +47,7 @@ const SignUp = () => {
        .then(res=>res.json())
        .then(data=>{
         if(data.insertedId){
+            refetch()
             alert('INSERTED SUCCESSFULLT')
         }
        })

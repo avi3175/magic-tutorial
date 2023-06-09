@@ -1,8 +1,10 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
+import userStack from '../hooks/Userstack';
 
 const Nabvar = () => {
+    const [cart, refetch] = userStack()
     const { user, logOut } = useContext(AuthContext)
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     console.log(user)
@@ -11,11 +13,12 @@ const Nabvar = () => {
     };
 
 
-const handleLogOut = () =>{
-    logOut()
-    .then(()=>{})
-    .catch(error=>console.log(error))
-}
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.log(error))
+        refetch()
+    }
 
     return (
         <div>
@@ -38,9 +41,16 @@ const handleLogOut = () =>{
 
                                 <Link to="/teacher" className="text-yellow-700  uppercase hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-bold">Instructors</Link>
 
-                                <a href="/classes" className="text-yellow-700 uppercase hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-bold">Classes</a>
+                                {
+                                    user && <Link to="/class" className="text-yellow-700 uppercase hover:bg-sky-600 hover:text-white px-3 py-2 rounded-md text-md font-bold">
+                                        <button className='btn gap-2 bg-black'>
+                                            My Classes
+                                            <div className='badge badge-secondary'></div>
+                                        </button>
+                                    </Link>
+                                }
 
-                                <a href="/dashboard" className="text-yellow-700 uppercase hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-bold">Dashboard</a>
+                                <Link to="/dashboard/mycart" className="text-yellow-700 uppercase hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-bold">Dashboard</Link>
 
 
                                 {user ? <p onClick={handleLogOut} className='text-yellow-700 uppercase hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-bold'>logout <span className='text-blue-900 bg-sky-400 p-2 mx-3'>{user?.email}</span></p>

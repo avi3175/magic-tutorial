@@ -7,6 +7,9 @@ import Home from "../Components/Home";
 import Teacher from "../Components/Teacher"
 import SignUp from "../Components/SignUp";
 import LogIn from "../Components/LogIn";
+import Dashboard from "../Layout/Dashboard";
+import Mycart from "../Components/Mycart";
+import PrivateRoute from "./PrivateRoute";
 
  export const router = createBrowserRouter([
     {
@@ -31,4 +34,14 @@ import LogIn from "../Components/LogIn";
         }
       ]
     },
+    {
+      path:"dashboard",
+      element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+      children:[
+        {
+          path:"mycart",
+          element:<Mycart></Mycart>
+        }
+      ]
+    }
   ]);
