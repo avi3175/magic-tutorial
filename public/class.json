@@ -1,7 +1,7 @@
 
 [
       {
-        "id": 1,
+        
         "image": "https://cdn.wallpapersafari.com/53/62/xP05sO.jpg",
         "name": "Magic Class 1",
         "instructor": "Chris Angels",
@@ -9,7 +9,7 @@
         "price": 50.00
       },
       {
-        "id": 2,
+       
         "image": "https://www.reviewjournal.com/wp-content/uploads/2022/01/16071489_web1_PT-side-by-side.jpg?crop=1",
         "name": "Magic Class 2",
         "instructor": "Pen and Teller",
@@ -17,7 +17,7 @@
         "price": 75.00
       },
       {
-        "id": 3,
+        
         "image": "https://wallpapercave.com/wp/wp1917060.jpg",
         "name": "Magic Class 3",
         "instructor": "David Copperfield",
@@ -25,7 +25,7 @@
         "price": 60.00
       },
       {
-        "id": 4,
+        
         "image": "https://cdn.technadu.com/wp-content/uploads/2020/03/David-Blaine.jpg",
         "name": "Magic Class 4",
         "instructor": "David Blain",
@@ -33,7 +33,7 @@
         "price": 65.00
       },
       {
-        "id": 5,
+       
         "image": "https://wallpapercave.com/wp/wp2023573.jpg",
         "name": "Magic Class 5",
         "instructor": "Dynamo",
@@ -41,7 +41,7 @@
         "price": 80.00
       },
       {
-        "id": 6,
+        
         "image": "https://wallpapercave.com/wp/wp4502131.jpg",
         "name": "Magic Class 6",
         "instructor": "Derren Brown",

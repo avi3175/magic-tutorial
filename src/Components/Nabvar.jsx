@@ -1,10 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
-import userStack from '../hooks/Userstack';
 
 const Nabvar = () => {
-    const [cart, refetch] = userStack()
+    // const [cart,refetch] = cartStack()
     const { user, logOut } = useContext(AuthContext)
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     console.log(user)

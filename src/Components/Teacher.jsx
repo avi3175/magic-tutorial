@@ -21,6 +21,7 @@ const Teacher = () => {
                             <p className="text-gray-700">
                                 {th.email}
                             </p>
+                            
                         </div>
                     </div>
                 </div>)
