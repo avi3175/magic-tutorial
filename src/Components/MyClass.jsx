@@ -1,9 +1,35 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import allClass from '../hooks/classes';
+import { AuthContext } from '../Provider/AuthProvider';
 
 const MyClass = () => {
+    const { user, logOut } = useContext(AuthContext)
     const [school] = allClass()
-    console.log(school)
+    const cart = school
+    console.log(cart)
+
+    const handleAddToCart = (item) =>{
+            console.log(item)
+            if(user){
+                fetch('http://localhost:5000/carts',{
+                    method:"POST",
+                    headers:{
+                        "content-type":"application/json"
+                    },
+                    body:JSON.stringify(item)
+                })
+                .then(res=>res.json())
+                .then(data=>{
+                    if(data.insertedId){
+                        alert("insert successfully")
+                    }
+                })
+            }
+    }
+
+
+
+
     return (
         <div className='mt-12'>
             <div className="flex flex-wrap justify-center">
@@ -30,7 +56,7 @@ const MyClass = () => {
                                 <p className="text-gray-700">
                                    PRICE: {th.price}
                                 </p>
-                                <button className='bg-blue-400 py-2 px-4 text-white'>ENROLL NOW</button>
+                                <button onClick={()=>handleAddToCart(th)} className='bg-blue-400 py-2 px-4 text-white'>ENROLL NOW</button>
                             </div>
                         </div>
                     </div>)
