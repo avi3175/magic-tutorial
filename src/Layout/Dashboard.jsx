@@ -2,7 +2,9 @@ import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 
 const Dashboard = () => {
+    const isAdmin = true
     return (
+
         <div>
             <div className="drawer drawer-mobile">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -15,16 +17,24 @@ const Dashboard = () => {
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 bg-base-100 text-base-content">
+                        {
+                            isAdmin ? <>
+                                <li><Link to='/dashboard/manageclass'>MANAGE CLASS</Link></li>
+                                <li><Link to='/dashboard/manageuser'>MANAGE USERS</Link></li>
+                            </>
+                                :
+                                <></>
+                        }
                         {/* <!-- Sidebar content here --> */}
-                        <li><Link>MANAGE CLASS</Link></li>
-                        <li><Link>MANAGE USERS</Link></li>
+                        {/* <li><Link to='/dashboard/manageclass'>MANAGE CLASS</Link></li>
+                        <li><Link to='/dashboard/manageuser'>MANAGE USERS</Link></li> */}
 
                         <div className='divider'></div>
-                        
+
                         <li><Link to='/'>HOME</Link></li>
                         <li><Link to='/teacher'>INSTRUCTORS</Link></li>
                         <li><Link>ALL CLASSES</Link></li>
-                        
+
                     </ul>
 
                 </div>
