@@ -5,29 +5,29 @@ import { AuthContext } from '../Provider/AuthProvider';
 const MyClass = () => {
     const { user, logOut } = useContext(AuthContext)
     const [school,loading] = allClass()
-    const cart = school
-    console.log(cart)
+    
+    console.log(school)
 
-    // const handleAddToCart = (item) =>{
-    //         console.log(item)
-    //         // if(user && user.email){
-    //         //    const order = {item,email:user.email}
-    //             fetch('http://localhost:5000/cart',{
-    //                 method:"POST",
-    //                 headers:{
-    //                     "content-type":"application/json"
-    //                 },
-    //                 body:JSON.stringify(item)
-    //             })
-    //             .then(res=>res.json())
-    //             .then(data=>{
-    //                 if(data.insertedId){
-    //                     alert("insert successfully")
-    //                     loading(false)
-    //                 }
-    //             })
-    //         // }
-    // }
+    const handleAddToCart = ({item}) =>{
+            console.log(item)
+            // if(user && user.email){
+            //    const order = {item,email:user.email}
+                fetch('http://localhost:5000/cart',{
+                    method:"POST",
+                    headers:{
+                        "content-type":"application/json"
+                    },
+                    body:JSON.stringify(item)
+                })
+                .then(res=>res.json())
+                .then(data=>{
+                    if(data.insertedId){
+                        alert("insert successfully")
+                        // loading(false)
+                    }
+                })
+            // }
+    }
 
 
 
@@ -36,8 +36,8 @@ const MyClass = () => {
         <div className='mt-12'>
             <div className="flex flex-wrap justify-center">
 
-                {/* {
-                    cart.map(th => <div key={th._id} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-4">
+                {
+                    school.map(th => <div key={th._id} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-4">
                         <div className="bg-white rounded-lg shadow-lg">
                             <img
                                 className="w-full h-40 object-cover rounded-t-lg"
@@ -62,7 +62,7 @@ const MyClass = () => {
                             </div>
                         </div>
                     </div>)
-                } */}
+                }
 
 
             </div>
