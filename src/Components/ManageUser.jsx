@@ -1,10 +1,8 @@
 import { useQuery } from '@tanstack/react-query'
 import React from 'react';
-// import userStack from '../hooks/Userstack';
 import { Helmet } from 'react-helmet-async';
 
 const ManageUser = () => {
-    // const [cart,refetch] = userStack()
 
 
     const { data: users = [], refetch } = useQuery(['users'], async () => {

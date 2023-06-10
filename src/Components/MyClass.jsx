@@ -1,10 +1,12 @@
 import React, { useContext } from 'react';
 import allClass from '../hooks/classes';
 import { AuthContext } from '../Provider/AuthProvider';
+import userStack from '../hooks/Userstack';
 
 const MyClass = () => {
     const { user, logOut } = useContext(AuthContext)
     const [school,loading] = allClass()
+    const [,refetch] = userStack()
     
     console.log(school)
 
@@ -27,6 +29,7 @@ const MyClass = () => {
                 .then(res=>res.json())
                 .then(data=>{
                     if(data.insertedId){
+                        refetch()
                         alert("insert successfully")
                         // loading(false)
                     }

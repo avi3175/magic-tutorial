@@ -1,9 +1,10 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
+import userStack from '../hooks/Userstack';
 
 const Nabvar = () => {
-    // const [cart,refetch] = cartStack()
+    const [cart,refetch] = userStack()
     const { user, logOut } = useContext(AuthContext)
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     console.log(user)
@@ -44,7 +45,7 @@ const Nabvar = () => {
                                     user && <Link to="/dashboard/class" className="text-yellow-700 uppercase hover:bg-sky-600 hover:text-white px-3 py-2 rounded-md text-md font-bold">
                                         <button className='btn gap-2 bg-black'>
                                             My Classes
-                                            <div className='badge badge-secondary'></div>
+                                            <div className='badge badge-secondary'>+{cart.length || 0}</div>
                                         </button>
                                     </Link>
                                 }
