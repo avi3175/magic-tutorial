@@ -8,16 +8,21 @@ const MyClass = () => {
     
     console.log(school)
 
-    const handleAddToCart = ({item}) =>{
+    const handleAddToCart = (item) =>{
             console.log(item)
-            // if(user && user.email){
-            //    const order = {item,email:user.email}
+            if(user && user.email){
+                const name = item.name
+                const price = item.price
+                const instructor = item.instructor
+                const availableSeats = item.availableSeats
+                const image = item.image
+               const order = {name,price,instructor,availableSeats,image,email:user.email}
                 fetch('http://localhost:5000/cart',{
                     method:"POST",
                     headers:{
                         "content-type":"application/json"
                     },
-                    body:JSON.stringify(item)
+                    body:JSON.stringify(order)
                 })
                 .then(res=>res.json())
                 .then(data=>{
@@ -26,7 +31,7 @@ const MyClass = () => {
                         // loading(false)
                     }
                 })
-            // }
+            }
     }
 
 
