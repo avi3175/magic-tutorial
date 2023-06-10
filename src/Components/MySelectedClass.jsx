@@ -3,8 +3,22 @@ import userStack from '../hooks/Userstack';
 import { Helmet } from 'react-helmet-async';
 
 const MySelectedClass = () => {
-    const [cart] = userStack()
+    const [cart,refetch] = userStack()
     const total = cart.reduce((sum,item)=>item.price +sum ,0)
+
+
+    const handleDelete = item =>{
+            fetch(`http://localhost:5000/cart/${item._id}`,{
+                method:"DELETE"
+            })
+            .then(res=>res.json())
+            .then(data=>{
+                if(data.deletedCount>0){
+                    refetch()
+                    alert('DELETED')
+                }
+            })
+    }
 
     console.log(cart)
     return (
@@ -26,21 +40,23 @@ const MySelectedClass = () => {
                             <th>INSTRUCTOR</th>
                             <th>SEATS</th>
                             <th>EMAIL</th>
+                            <th>ACTION</th>
                             
                         </tr>
                     </thead>
                     <tbody>
 
                         {
-                            cart.map((user, index) => <tr
-                                key={user._id}
+                            cart.map((item, index) => <tr
+                                key={item._id}
                             >
                                 <th>{index + 1}</th>
-                                <td>{user.name}</td>
-                                <td>{user.price}</td>
-                                <td>{user.instructor}</td>
-                                <td>{user.availableSeats}</td>
-                                <td>{user.email}</td>
+                                <td>{item.name}</td>
+                                <td>{item.price}</td>
+                                <td>{item.instructor}</td>
+                                <td>{item.availableSeats}</td>
+                                <td>{item.email}</td>
+                                <td><button onClick={()=>handleDelete(item)} className='px-4 py-2 bg-rose-900 text-white'>DELETE</button></td>
 
                             </tr>)
                         }
