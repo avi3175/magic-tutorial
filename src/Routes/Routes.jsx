@@ -12,6 +12,7 @@ import Mycart from "../Components/Mycart";
 import PrivateRoute from "./PrivateRoute";
 import MyClass from "../Components/MyClass";
 import ManageUser from "../Components/ManageUser";
+import MySelectedClass from "../Components/MySelectedClass";
 
  export const router = createBrowserRouter([
     {
@@ -33,7 +34,11 @@ import ManageUser from "../Components/ManageUser";
         {
             path:"/login",
             element:<LogIn></LogIn>
-        }
+        },
+        {
+          path:"/class",
+          element:<MyClass></MyClass>
+        },
       ]
     },
     {
@@ -44,13 +49,14 @@ import ManageUser from "../Components/ManageUser";
           path:"mycart",
           element:<Mycart></Mycart>
         },
-        {
-          path:"class",
-          element:<MyClass></MyClass>
-        },
+        
         {
           path:"manageuser",
           element:<ManageUser></ManageUser>
+        },
+        {
+          path:"myselectedclass",
+          element:<MySelectedClass></MySelectedClass>
         }
       ]
     }

@@ -3,6 +3,7 @@ import Nabvar from './Nabvar';
 import Slider from './Slider';
 import Extra from './Extra';
 import { Helmet } from 'react-helmet-async';
+import MyClass from './MyClass';
 
 const Home = () => {
     return (
@@ -12,6 +13,7 @@ const Home = () => {
             </Helmet>
             <Nabvar></Nabvar>
             <Slider></Slider>
+            <MyClass></MyClass>
             <Extra></Extra>
         </div>
     );

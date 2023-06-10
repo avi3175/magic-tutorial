@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 
 const Dashboard = () => {
-    const isAdmin = true
+    const isAdmin = false
     return (
 
         <div>
@@ -23,7 +23,10 @@ const Dashboard = () => {
                                 <li><Link to='/dashboard/manageuser'>MANAGE USERS</Link></li>
                             </>
                                 :
-                                <></>
+                                <>
+                                    <li><Link to='/dashboard/myselectedclass'>MY SELECTED CLASS</Link></li>
+                                    <li><Link to='/dashboard/manageuser'>My Enrolled Classes</Link></li>
+                                </>
                         }
                         {/* <!-- Sidebar content here --> */}
                         {/* <li><Link to='/dashboard/manageclass'>MANAGE CLASS</Link></li>
