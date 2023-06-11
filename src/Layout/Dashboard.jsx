@@ -1,11 +1,13 @@
 import React, { useContext } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
+import useAdmin from '../hooks/useAdmin';
 
 const Dashboard = () => {
     // const {user} = useContext(AuthContext)
     // console.log(user)
-    const isAdmin = true
+    // const isAdmin = false
+    const [isAdmin] = useAdmin()
     return (
 
         <div>
