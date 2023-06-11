@@ -6,8 +6,14 @@ import useAdmin from '../hooks/useAdmin';
 const Dashboard = () => {
     // const {user} = useContext(AuthContext)
     // console.log(user)
-    const isAdmin = false
-    // const [isAdmin] = useAdmin()
+    // const isAdmin = false
+    const [isAdmin] = useAdmin()
+    console.log(isAdmin)
+    console.log(useAdmin)
+
+    
+
+
     return (
 
         <div>

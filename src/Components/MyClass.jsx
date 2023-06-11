@@ -8,7 +8,7 @@ const MyClass = () => {
     const [school,loading] = allClass()
     const [,refetch] = userStack()
     
-    console.log(school)
+    // console.log(school)
 
     const handleAddToCart = (item) =>{
             console.log(item)

@@ -7,7 +7,7 @@ const Nabvar = () => {
     const [cart,refetch] = userStack()
     const { user, logOut } = useContext(AuthContext)
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    console.log(user)
+    // console.log(user)
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };

@@ -10,7 +10,7 @@ const [axiosSecure] = useAxiosSecure()
         const res = await axiosSecure.get('/users')
         return res.data
     })
-
+ console.log(users)
 
 
     const makeAdmin = (user) => {

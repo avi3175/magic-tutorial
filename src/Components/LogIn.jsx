@@ -13,11 +13,11 @@ const LogIn = () => {
 
 
     const onSubmit = data =>{
-         console.log(data)
+        //  console.log(data)
          logIn(data.email,data.password)
          .then(result=>{
             const user = result.user
-            console.log(user)
+            // console.log(user)
             navigation(from,{replace:true})
          })
         };

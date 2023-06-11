@@ -3,7 +3,7 @@ import userStack from '../hooks/Userstack';
 
 const Extra = () => {
     const [cart] = userStack()
-    console.log(cart)
+    // console.log(cart)
     return (
         <div>
             <div className="py-16">
