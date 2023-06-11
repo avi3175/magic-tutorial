@@ -10,7 +10,7 @@ import userStack from '../hooks/Userstack';
 const SignUp = () => {
     const navigate = useNavigate()
     const [cart,refetch] = userStack()
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit,reset, formState: { errors } } = useForm();
     const {createUser,update} = useContext(AuthContext)
     const onSubmit = data => {
         
@@ -18,6 +18,12 @@ const SignUp = () => {
         .then(result=>{
             const loggedUser = result.user
             console.log(loggedUser)
+            update(data.name)
+            .then(()=>{
+                    console.log("user updated")
+                    reset()
+            })
+            .catch(error=>console.log(error))
         })
 
         update(data.name,data.photoURL)

@@ -13,6 +13,9 @@ import PrivateRoute from "./PrivateRoute";
 import MyClass from "../Components/MyClass";
 import ManageUser from "../Components/ManageUser";
 import MySelectedClass from "../Components/MySelectedClass";
+import AdminRoute from "../Routes/AdminRoute"
+import Allclass from "../Components/Allclass";
+import AddClass from "../Components/AddClass";
 
  export const router = createBrowserRouter([
     {
@@ -55,8 +58,16 @@ import MySelectedClass from "../Components/MySelectedClass";
           element:<ManageUser></ManageUser>
         },
         {
+          path:"manageclass",
+          element:<Allclass></Allclass>
+        },
+        {
           path:"myselectedclass",
           element:<MySelectedClass></MySelectedClass>
+        },
+        {
+          path:"addclass",
+          element:<AddClass></AddClass>
         }
       ]
     }
