@@ -5,7 +5,7 @@ import { AuthContext } from '../Provider/AuthProvider';
 const Dashboard = () => {
     // const {user} = useContext(AuthContext)
     // console.log(user)
-    const isAdmin = false
+    const isAdmin = true
     return (
 
         <div>
