@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import { AuthContext } from '../Provider/AuthProvider';
 
 const Dashboard = () => {
+    // const {user} = useContext(AuthContext)
+    // console.log(user)
     const isAdmin = false
     return (
 
