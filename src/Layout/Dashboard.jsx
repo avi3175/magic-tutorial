@@ -2,14 +2,21 @@ import React, { useContext } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 import useAdmin from '../hooks/useAdmin';
+import useInstructor from '../hooks/useInstructor';
 
 const Dashboard = () => {
     // const {user} = useContext(AuthContext)
     // console.log(user)
     // const isAdmin = false
     const [isAdmin] = useAdmin()
-    console.log(isAdmin)
-    console.log(useAdmin)
+    // console.log(isAdmin)
+    // console.log(useAdmin)
+
+
+
+    const [isInstructor] = useInstructor()
+    console.log(isInstructor)
+    console.log(useInstructor)
 
     
 
@@ -29,8 +36,8 @@ const Dashboard = () => {
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 bg-base-100 text-base-content">
                         {
-                            isAdmin ? <>
-                                <li><Link to='/dashboard/manageclass'>MANAGE CLASS</Link></li>
+                            isInstructor ? <>
+                                <li><Link to='/dashboard/manageclass'>MANAGE you CLASS</Link></li>
                                 <li><Link to='/dashboard/manageuser'>MANAGE USERS</Link></li>
                             </>
                                 :
