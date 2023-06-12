@@ -14,7 +14,7 @@ const{user,loading} = useAuth()
     queryKey: ['cart', user?.email],
     enabled:!loading,
     // queryFn: async ()=>{
-    //     const response = await fetch(`http://localhost:5000/cart?email=${user.email}`,{headers:{
+    //     const response = await fetch(`https://magic-server.vercel.app/cart?email=${user.email}`,{headers:{
     //       authorization:`bearer ${token}`
     //     }})
     //     return response.json()

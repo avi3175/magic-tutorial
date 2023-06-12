@@ -51,7 +51,7 @@ const AddClass = () => {
                     // POST FOR THE DATABASE
 
 
-                    fetch('http://localhost:5000/class', {
+                    fetch('https://magic-server.vercel.app/class', {
                         method: "POST",
                         headers: {
                             "content-type": "application/json"

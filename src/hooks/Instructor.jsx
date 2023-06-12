@@ -4,7 +4,7 @@ const instructor = () =>{
     const [teacher,setTeacher] = useState([])
     const [loading,setLoading] = useState(true)
     useEffect(()=>{
-        fetch('http://localhost:5000/teacher')
+        fetch('https://magic-server.vercel.app/teacher')
         .then(res=>res.json())
         .then(data=>{
             setTeacher(data)

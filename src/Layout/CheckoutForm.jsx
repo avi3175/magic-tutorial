@@ -15,7 +15,7 @@ const CheckoutForm = ({price}) => {
     // const [axiosSecure] = useAxiosSecure()
 
     useEffect(()=>{
-        fetch('http://localhost:5000/create-payment-intent',{price})
+        fetch('https://magic-server.vercel.app/create-payment-intent',{price})
         .then(res=>{
             console.log(res.data.clientSecret)
             setClientSecret(res.data.clientSecret)

@@ -20,7 +20,7 @@ const MyClass = () => {
                 const availableSeats = item.availableSeats
                 const image = item.image
                const order = {name,price,instructor,availableSeats,image,email:user.email}
-                fetch('http://localhost:5000/cart',{
+                fetch('https://magic-server.vercel.app/cart',{
                     method:"POST",
                     headers:{
                         "content-type":"application/json"

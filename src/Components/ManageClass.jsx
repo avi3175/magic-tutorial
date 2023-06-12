@@ -7,7 +7,7 @@ const ManageClass = () => {
     const { user } = useAuth()
 
     const makeApprove = (user) => {
-        fetch(`http://localhost:5000/class/approve/${user._id}`, {
+        fetch(`https://magic-server.vercel.app/class/approve/${user._id}`, {
             method: "PATCH"
         })
             .then(res => res.json())
@@ -22,7 +22,7 @@ const ManageClass = () => {
 
 
     const makeDeny = (user) => {
-        fetch(`http://localhost:5000/class/denied/${user._id}`, {
+        fetch(`https://magic-server.vercel.app/class/denied/${user._id}`, {
             method: "PATCH"
         })
             .then(res => res.json())

@@ -9,7 +9,7 @@ const MySelectedClass = () => {
 
 
     const handleDelete = item =>{
-            fetch(`http://localhost:5000/cart/${item._id}`,{
+            fetch(`https://magic-server.vercel.app/cart/${item._id}`,{
                 method:"DELETE"
             })
             .then(res=>res.json())
