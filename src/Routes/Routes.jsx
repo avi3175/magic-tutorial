@@ -68,7 +68,11 @@ import AddClass from "../Components/AddClass";
         {
           path:"addclass",
           element:<AddClass></AddClass>
-        }
+        },
+        {
+          path:"allclass",
+          element:<Allclass></Allclass>
+        },
       ]
     }
   ]);

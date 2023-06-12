@@ -35,6 +35,9 @@ const MyClass = () => {
                     }
                 })
             }
+            else{
+                alert('PLEASE SIGN IN')
+            }
     }
 
 

@@ -1,26 +1,31 @@
 import React from 'react';
 import allClass from '../hooks/classes';
+import useAuth from '../hooks/useAuth';
+import { useQuery } from '@tanstack/react-query';
+import useSpecial from '../hooks/useSpecial';
 
 const Allclass = () => {
     const [school] = allClass()
+    const { user } = useAuth()
+
+    const items = school.filter(teacher => teacher.email === user.email)
+    console.log(items)
+
     return (
         <div>
             <div className="flex flex-wrap justify-center">
 
                 {
-                    school.map(th => <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-4">
-                        <div className="bg-white rounded-lg shadow-lg">
-                            <img
-                                className="w-full h-40 object-cover rounded-t-lg"
-                                src={th.image}
-                                alt="Card Image"
-                            />
-                            <div className="p-4">
-                                <h3 className="text-xl font-semibold mb-2">{th.name}</h3>
-                                <p className="text-gray-700">
-                                    {th.email}
-                                </p>
-
+                    items.map(th => <div className="card card-compact w-96 bg-base-100 shadow-xl">
+                        <figure><img src={th.image} alt="Shoes" /></figure>
+                        <div className="card-body">
+                            <h2 className="card-title">{th.name}</h2>
+                            <p>INSTRUCTOR:{th.instructor}</p>
+                            <p>PRICE:{th.price}</p>
+                            <p>SEAT:{th.seat}</p>
+                            <p>STATUS:{th.status}</p>
+                            <div className="card-actions justify-end">
+                                <button className="btn btn-primary">Buy Now</button>
                             </div>
                         </div>
                     </div>)
@@ -28,6 +33,9 @@ const Allclass = () => {
 
 
             </div>
+
+
+
         </div>
     );
 };

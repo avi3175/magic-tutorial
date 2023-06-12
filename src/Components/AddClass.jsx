@@ -1,13 +1,92 @@
 import React from 'react';
 import useAuth from '../hooks/useAuth';
+import { useForm } from "react-hook-form";
+
+const img_hosting_token = import.meta.env.VITE_Image_upload_token
 
 const AddClass = () => {
-    const {user} = useAuth()
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { user } = useAuth()
     console.log(user)
+
+
+    const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`
+
+
+    //    const createClass = (event) =>{
+    //     event.preventDefault()
+    //     const form = event.target
+    //     const name = form.name.value
+    //     const instructorName = form.instructor.value
+    //     const email = form.email.value
+    //     const seat = form.seat.value
+    //     const price = form.price.value
+    //     const image = form.image.file
+    //     console.log(name,instructorName,email,seat,price,image,event)
+
+
+    //     const formData = new FormData()
+    //  } 
+
+    const onSubmit = data => {
+        console.log(data)
+        const formData = new FormData()
+        formData.append('image', data.image[0])
+
+        fetch(img_hosting_url, {
+            method: "POST",
+            body: formData
+        })
+            .then(res => res.json())
+            .then(imgResponse => {
+                console.log(imgResponse)
+                if (imgResponse.success) {
+                    const imgURL = imgResponse.data.display_url
+                    // console.log(data,imgURL)
+                    const status = "pending"
+                    const { name, email, instructor, price, seat } = data
+                    const classItem = { name, price: parseFloat(price), instructor, email, seat: parseInt(seat), image: imgURL,status }
+                    // console.log(classItem)
+
+                    // POST FOR THE DATABASE
+
+
+                    fetch('http://localhost:5000/class', {
+                        method: "POST",
+                        headers: {
+                            "content-type": "application/json"
+                        },
+                        body: JSON.stringify(classItem)
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data.insertedId) {
+                                // refetch()
+                                alert('INSERTED SUCCESSFULLT')
+                            }
+                        })
+                }
+
+            })
+
+
+
+
+
+
+
+
+
+    };
+
+
+
+
+
     return (
         <div>
             <div className="max-w-md mx-auto">
-                <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                <form onSubmit={handleSubmit(onSubmit)} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                     <div className="mb-4">
                         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="className">
                             Class Name
@@ -17,6 +96,8 @@ const AddClass = () => {
                             id="className"
                             type="text"
                             placeholder="Enter class name"
+                            name='name'
+                            {...register("name")}
                         />
                     </div>
                     <div className="mb-4">
@@ -28,6 +109,8 @@ const AddClass = () => {
                             id="classImage"
                             type="file"
                             accept="image/*"
+                            // name='image'
+                            {...register("image")}
                         />
                     </div>
                     <div className="mb-4">
@@ -39,6 +122,8 @@ const AddClass = () => {
                             id="instructorName"
                             type="text"
                             value={user.displayName}
+                            name='instructor'
+                            {...register("instructor")}
                             readOnly
                         />
                     </div>
@@ -51,6 +136,8 @@ const AddClass = () => {
                             id="instructorEmail"
                             type="email"
                             value={user.email}
+                            name='email'
+                            {...register("email")}
                             readOnly
                         />
                     </div>
@@ -64,6 +151,8 @@ const AddClass = () => {
                             type="number"
                             min="0"
                             placeholder="Enter available seats"
+                            name='seat'
+                            {...register("seat")}
                         />
                     </div>
                     <div className="mb-4">
@@ -75,17 +164,14 @@ const AddClass = () => {
                             id="price"
                             type="number"
                             min="0"
-                            step="0.01"
+                            step="0"
                             placeholder="Enter price"
+                            name='price'
+                            {...register("price")}
                         />
                     </div>
                     <div className="flex items-center justify-between">
-                        <button
-                            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                            type="submit"
-                        >
-                            Create Class
-                        </button>
+                        <input className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" value="CREATE CLASS" />
                     </div>
                 </form>
             </div>
