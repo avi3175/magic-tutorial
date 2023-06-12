@@ -4,6 +4,7 @@ import Slider from './Slider';
 import Extra from './Extra';
 import { Helmet } from 'react-helmet-async';
 import MyClass from './MyClass';
+import Teacher from './Teacher';
 
 const Home = () => {
     return (
@@ -13,7 +14,7 @@ const Home = () => {
             </Helmet>
             <Nabvar></Nabvar>
             <Slider></Slider>
-            <MyClass></MyClass>
+            <Teacher></Teacher>
             <Extra></Extra>
         </div>
     );

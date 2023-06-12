@@ -1,16 +1,16 @@
 import React from 'react';
-import userStack from '../hooks/Userstack';
+// import userStack from '../hooks/Userstack';
 
 const Extra = () => {
-    const [cart] = userStack()
+    // const [cart] = userStack()
     // console.log(cart)
     return (
         <div>
-            <div className="py-16">
+            <div style={{ backgroundImage: `url(${'https://wallpaperaccess.com/full/3418534.jpg'})` }}  className="py-16">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2 className="text-3xl uppercase font-extrabold text-rose-700 text-center mb-12 animate-pulse">Learn the Art of Magic{cart.length}</h2>
-                    <img src="https://wallpaperaccess.com/full/3418534.jpg" className='opacity-30' alt="" />
-                    {/* <h1 className='absolute text-white'>WELCOME</h1> */}
+                    <h2 className="text-3xl uppercase font-extrabold text-rose-700 text-center mb-12 animate-pulse">Learn the Art of Magic</h2>
+                    {/* <img src="https://wallpaperaccess.com/full/3418534.jpg" className='opacity-30' alt="" /> */}
+                    <h1 className='absolute text-white'>WELCOME</h1>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
                         <div className="bg-black rounded-lg p-8 transform hover:scale-105 transition-transform duration-300">

@@ -41,6 +41,11 @@ const Nabvar = () => {
 
                                 <Link to="/teacher" className="text-yellow-700  uppercase hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-bold">Instructors</Link>
 
+
+                                <Link to="/class" className="text-yellow-700  uppercase hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-md font-bold">class</Link>
+
+
+
                                 {
                                     user && <Link to="" className="text-yellow-700 uppercase hover:bg-sky-600 hover:text-white px-3 py-2 rounded-md text-md font-bold">
                                         <button className='btn gap-2 bg-black'>

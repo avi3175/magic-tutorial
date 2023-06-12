@@ -17,6 +17,9 @@ import AdminRoute from "../Routes/AdminRoute"
 import Allclass from "../Components/Allclass";
 import AddClass from "../Components/AddClass";
 import ManageClass from "../Components/ManageClass";
+import Payment from "../Layout/Payment";
+import MyEnrolledClass from "../Components/MyEnrolledClass";
+import Error from "../Components/Error";
 
  export const router = createBrowserRouter([
     {
@@ -42,6 +45,10 @@ import ManageClass from "../Components/ManageClass";
         {
           path:"/class",
           element:<MyClass></MyClass>
+        },
+        {
+          path:"*",
+          element:<Error></Error>
         },
       ]
     },
@@ -77,6 +84,18 @@ import ManageClass from "../Components/ManageClass";
         {
           path:"manageclasswithadmin",
           element:<ManageClass></ManageClass>
+        },
+        {
+          path:"payment",
+          element:<Payment></Payment>
+        },
+        {
+          path:"enroll",
+          element:<MyEnrolledClass></MyEnrolledClass>
+        },
+        {
+          path:"*",
+          element:<Error></Error>
         },
       ]
     }

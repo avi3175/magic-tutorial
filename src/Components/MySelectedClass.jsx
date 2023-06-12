@@ -1,6 +1,7 @@
 import React from 'react';
 import userStack from '../hooks/Userstack';
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 
 const MySelectedClass = () => {
     const [cart,refetch] = userStack()
@@ -27,7 +28,7 @@ const MySelectedClass = () => {
             <div>
                 <p>TOTAL SELECTED CLASS :{cart.length}</p>
                 <p>TOTAL PRICE:{total}</p>
-                <button className='btn btn-warning btn-sm'>PAY</button>
+                <Link to="/dashboard/payment"><button className='btn btn-warning btn-sm'>PAY</button></Link>
             </div>
             <div className="overflow-x-auto mt-32">
                 <table className="table table-zebra">

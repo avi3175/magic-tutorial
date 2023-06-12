@@ -7,7 +7,8 @@ const MyClass = () => {
     const { user, logOut } = useContext(AuthContext)
     const [school,loading] = allClass()
     const [,refetch] = userStack()
-    
+    const items = school.filter(item => item.status === "approve")
+
     // console.log(school)
 
     const handleAddToCart = (item) =>{
@@ -44,11 +45,13 @@ const MyClass = () => {
 
 
     return (
-        <div className='mt-12'>
-            <div className="flex flex-wrap justify-center">
+        <div className=' px-10 py-5 bg-black'>
+
+            <h1 className='text-3xl text-white mb-5 mt-5'>ALL THE APPROVED CLASS</h1>
+            <div className="flex flex-wrap justify-center px-10">
 
                 {
-                    school.map(th => <div key={th._id} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-4">
+                    items.map(th => <div key={th._id} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-4">
                         <div className="bg-white rounded-lg shadow-lg">
                             <img
                                 className="w-full h-40 object-cover rounded-t-lg"
