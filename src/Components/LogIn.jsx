@@ -38,18 +38,18 @@ const LogIn = () => {
 
         <div>
             <Nabvar></Nabvar>
-            <div className="hero min-h-screen bg-base-200">
+            <div className="hero min-h-screen bg-gradient-to-r from-black to-black">
                 <div className="hero-content flex-col lg:flex-col">
                     <div className="text-center lg:text-center">
                         <h1 className="text-3xl uppercase font-bold">Login now!</h1>
 
                     </div>
-                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-gradient-to-r from-violet-100 to-black">
                         <form onSubmit={handleSubmit(onSubmit)} className="card-body">
 
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Email</span>
+                                    <span className="label-text text-black font-bold">Email</span>
                                 </label>
                                 <input
                                     type="text"
@@ -61,7 +61,7 @@ const LogIn = () => {
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Password</span>
+                                    <span className="label-text text-black font-bold">Password</span>
                                 </label>
                                 <input
                                     type="text"
@@ -72,11 +72,11 @@ const LogIn = () => {
                                 />
 
                             </div>
-                            <input type="submit" value="LOG IN" />
-                            <p>NEW TO WEBSITE?<span className='text-sky-900' ><Link to="/signup">CLICK HERE</Link></span></p>
+                            <input type="submit" value="LOG IN" className='text-white font-bold' />
+                            <p>NEW TO WEBSITE?<span className='text-sky-900 font-bold' ><Link to="/signup">CLICK HERE</Link></span></p>
                         </form>
                     </div>
-                    <button onClick={handleG} className='text-3xl font-bold text-white bg-sky-900 p-3'>SIGN IN WITH GOOLGE</button>
+                    <button onClick={handleG} className='text-3xl font-bold text-white bg-gradient-to-r from-sky-400 to-black p-3'>SIGN IN WITH GOOLGE</button>
                 </div>
             </div>
 

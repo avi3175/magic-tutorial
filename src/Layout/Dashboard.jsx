@@ -3,6 +3,7 @@ import { Link, Outlet } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 import useAdmin from '../hooks/useAdmin';
 import useInstructor from '../hooks/useInstructor';
+import Nabvar from '../Components/Nabvar';
 
 const Dashboard = () => {
     // const {user} = useContext(AuthContext)
@@ -24,7 +25,8 @@ const Dashboard = () => {
     return (
 
         <div>
-            <div className="drawer drawer-mobile">
+            <Nabvar></Nabvar>
+            <div className="drawer drawer-mobile bg-rose-900">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content flex flex-col items-center justify-center">
                     {/* <!-- Page content here --> */}
@@ -34,7 +36,7 @@ const Dashboard = () => {
                 </div>
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-                    <ul className="menu p-4 w-80 bg-base-100 text-base-content">
+                    <ul className="menu p-4 w-80 bg-blue-900 text-white">
                         {
                             isAdmin ? <>
                                 <li><Link to='/dashboard/manageclasswithadmin'>MANAGE  CLASS</Link></li>

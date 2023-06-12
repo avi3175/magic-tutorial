@@ -68,12 +68,12 @@ const SignUp = () => {
                 <title>SIGN UP || MAGIC SCHOOL</title>
             </Helmet>
             <Nabvar></Nabvar>
-            <div className="hero min-h-screen bg-gradient-to-r from-violet-900 to-black">
+            <div className="hero min-h-screen bg-gradient-to-r from-black to-black">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
                         
                     </div>
-                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-gradient-to-r from-rose-900 to-blue-900">
+                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-gradient-to-r from-violet-100 to-black">
                         <form onSubmit={handleSubmit(onSubmit)} className="card-body">
 
                             <div className="form-control">
@@ -149,7 +149,7 @@ const SignUp = () => {
 
                             <input type="file" className="file-input file-input-bordered bg-rose-700 w-full max-w-xs"  />       
 
-                            <input type="submit" value="REGISTER" />
+                            <input type="submit" value="REGISTER" className='text-white font-bold bg-indigo-400 p-4' />
                         </form>
                     </div>
                 </div>

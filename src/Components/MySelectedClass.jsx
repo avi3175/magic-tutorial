@@ -26,11 +26,11 @@ const MySelectedClass = () => {
         <div>
             <Helmet><title>MAGIC SCHOOL || MY SELECTED CLASS</title></Helmet>
             <div>
-                <p>TOTAL SELECTED CLASS :{cart.length}</p>
-                <p>TOTAL PRICE:{total}</p>
+                <p className='text-white font-bold text-md'>TOTAL SELECTED CLASS :{cart.length}</p>
+                <p className='text-white font-bold text-md'>TOTAL PRICE:{total}</p>
                 <Link to="/dashboard/payment"><button className='btn btn-warning btn-sm'>PAY</button></Link>
             </div>
-            <div className="overflow-x-auto mt-32">
+            <div className="overflow-x-auto">
                 <table className="table table-zebra">
                     {/* head */}
                     <thead>
