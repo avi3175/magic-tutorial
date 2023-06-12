@@ -16,6 +16,7 @@ import MySelectedClass from "../Components/MySelectedClass";
 import AdminRoute from "../Routes/AdminRoute"
 import Allclass from "../Components/Allclass";
 import AddClass from "../Components/AddClass";
+import ManageClass from "../Components/ManageClass";
 
  export const router = createBrowserRouter([
     {
@@ -72,6 +73,10 @@ import AddClass from "../Components/AddClass";
         {
           path:"allclass",
           element:<Allclass></Allclass>
+        },
+        {
+          path:"manageclasswithadmin",
+          element:<ManageClass></ManageClass>
         },
       ]
     }
