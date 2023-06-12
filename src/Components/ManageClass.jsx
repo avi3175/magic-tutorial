@@ -21,6 +21,19 @@ const ManageClass = () => {
 
 
 
+    const makeDeny = (user) => {
+        fetch(`http://localhost:5000/class/denied/${user._id}`, {
+            method: "PATCH"
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount) {
+                    // refetch()
+                    alert('MAKE DENIED DONE')
+                }
+            })
+    }
+
 
 
 
@@ -74,7 +87,7 @@ const ManageClass = () => {
                                 <td>{user.seat}</td>
                                 <td>{user.instructor}</td>
                                 <td>{user.status}</td>
-                                <td><button onClick={() => makeAdmin(user)} className='bg-rose-900 p-2 text-white'>DENY</button></td>
+                                <td><button onClick={() => makeDeny(user)} className='bg-rose-900 p-2 text-white'>DENY</button></td>
                                 <td><button onClick={() => makeInstructor(user)} className='bg-blue-900 p-2 text-white'>FEEDBACK</button></td>
                                 <td><button onClick={() => makeApprove(user)} className='bg-blue-900 p-2 text-white'>APPROVE</button></td>
 
